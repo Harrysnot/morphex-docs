@@ -1,0 +1,34 @@
+The BMX Liquidity Token (BLT) consists of an index of assets used for swaps and leveraged trading on BMX Classic. BLT can be created, or minted, using any index asset, and redeemed, or burnt, to receive any index asset. The price of minting or redeeming BLT is determined by dividing the total value of assets in the index — including unrealized profits and losses from open trading positions — by the total supply of BLT.
+*BLT Price = Net Asset Value of Pool / Total BLT Supply*
+
+BLT acts as the counterparty to all trades on BMX Classic. This means that when traders lose, BLT gains, and when traders win, it comes out of the BLT pool.
+Unlike legacy GLP-style tokens, BLT does not receive emissions or escrowed rewards. Instead, BLT receives accrued fees directly from platform fee generation, allocated according to BIP-12:
+70% of platform fees from BMX Classic are allocated to BLT and routed as wETH.
+When BLT is deposited into the vault (wBLT), these fees are automatically harvested and processed into additional BLT.
+
+**Minting and Redeeming**
+To mint BLT, users deposit any supported asset via the Mint tab in the Deli Shop. The minting fee depends on the current balance of assets in the index:
+Lower fees are applied to assets that the pool has less of (relative to target weight).
+Higher fees are applied to assets that are overweight in the pool.
+
+To redeem, users simply select Redeem BLT, choose the asset to withdraw, and receive it at the current redemption rate after any applicable fee.
+
+This system encourages liquidity providers to help maintain a balanced pool and contributes to overall capital efficiency for traders.
+
+**Rebalancing**
+
+Fees for minting, redeeming, and swapping depend on how the action affects the weight of assets in the pool. Each asset has a target weight, and actions that improve balance are incentivized with lower fees.
+For example:
+If the pool has a large percentage of USDC and a small percentage of wETH, depositing more USDC may incur a high fee, while depositing wETH may receive a lower fee or rebate.
+Swapping or redeeming into underweight assets is incentivized through fee reductions.
+This dynamic fee model allows the protocol to maintain healthy liquidity distribution and protects BLT holders from unwanted volatility or imbalance.
+Additionally, BLT’s composition adapts to trader positioning:
+If many traders are shorting ETH, the pool will overweight stablecoins to minimize risk.
+If many traders are long, the pool will naturally hold more volatile assets — increasing potential upside if those traders are liquidated.
+These mechanics allow BLT to maintain synthetic market exposure while preserving pool integrity.
+
+**Risks**
+There are inherent risks associated with minting and holding BLT:
+Counterparty Risk: BLT is the counterparty to traders. If traders are profitable, BLT may decline in value.
+Smart Contract Risk: As with any DeFi protocol, interactions with smart contracts carry potential vulnerability.
+Asset Risk: Exposure to bridged tokens, stablecoins, or volatile assets may result in unexpected impermanent loss or reduced redemption value.
